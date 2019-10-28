@@ -23,7 +23,7 @@ def __process_movement():
 def __process_direction():
     try:
         direction = __get_direction()
-        if dir is not None:
+        if direction is not None:
             __clear()
             ground_station.set_robot_direction(direction)
             ground_station.print_ground()
