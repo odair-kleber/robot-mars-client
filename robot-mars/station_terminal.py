@@ -12,12 +12,22 @@ def init_terminal():
 
 
 def __check_pressed_key(key):
+    __process_movement()
     __process_direction()
 
 
 def __process_movement():
-    # todo: to implemets...
-    pass
+    try:
+        if __requested_movement():
+            __clear()
+            ground_station.mov_robot()
+            ground_station.print_ground()
+    except Exception as ex:
+        print('Unespected error: ', ex)
+
+
+def __requested_movement() -> bool:
+    return keyboard.is_pressed('shift')
 
 
 def __process_direction():

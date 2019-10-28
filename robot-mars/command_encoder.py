@@ -3,6 +3,11 @@ import directions
 __DIR_RIGHT = 'R'
 __DIR_LEFT = 'L'
 __DIR_NONE = ''
+__MOV = 'M'
+
+
+def encode_command_movement() -> str:
+    return __MOV
 
 
 def encode_command_direction(last_direction: str, new_direction: str) -> str:

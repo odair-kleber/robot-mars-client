@@ -16,4 +16,4 @@ def decode_robot_position(message: bytes) -> RobotPosition:
     if groups.__len__() != 3:
         return None
 
-    return RobotPosition(int(groups[0]), int(groups[1]), groups[2])
+    return RobotPosition(int(groups[1]), int(groups[0]), groups[2])
