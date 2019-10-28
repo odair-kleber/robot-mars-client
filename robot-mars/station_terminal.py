@@ -1,3 +1,6 @@
+import os
+import time
+
 import keyboard
 
 import directions
@@ -5,10 +8,24 @@ import ground_station
 
 
 def init_terminal():
+    __log_start()
     ground_station.init_station()
     ground_station.print_ground()
     keyboard.hook(__check_pressed_key)
-    keyboard.wait()
+    keyboard.wait('esc')
+    __log_finish()
+
+
+def __log_start():
+    __clear()
+    print('Connecting with mars station...')
+    time.sleep(2)
+    __clear()
+
+
+def __log_finish():
+    __clear()
+    print('Mars station was disconnected')
 
 
 def __check_pressed_key(key):
@@ -53,4 +70,4 @@ def __get_direction():
 
 
 def __clear():
-    print('\n' * 100)
+    os.system('cls' if os.name == 'nt' else 'clear')
